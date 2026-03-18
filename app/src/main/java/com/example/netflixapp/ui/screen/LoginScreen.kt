@@ -19,6 +19,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.netflixapp.ui.viewmodel.AuthViewModel
+import androidx.compose.runtime.LaunchedEffect
 
 @Composable
 fun LoginScreen(
@@ -34,9 +35,12 @@ fun LoginScreen(
     val authMessage by authViewModel.authMessage.observeAsState("")
     val isLoggedIn by authViewModel.isLoggedIn.observeAsState(false)
 
-    // Si l'usuari s'ha loguejat correctament, naveguem a la següent pantalla
-    if (isLoggedIn) {
-        onLoginSuccess()
+    // Quan el login sigui correcte, naveguem una sola vegada i reiniciem l'estat
+    LaunchedEffect(isLoggedIn) {
+        if (isLoggedIn) {
+            onLoginSuccess()
+            authViewModel.resetLoginState()
+        }
     }
 
     Column(
