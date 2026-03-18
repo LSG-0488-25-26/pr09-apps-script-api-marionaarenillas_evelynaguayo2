@@ -1,5 +1,5 @@
 // API KEY
-const API_KEY = "netflix123";
+const API_KEY = PropertiesService.getScriptProperties().getProperty("API_KEY");
 
 // Noms de les pestanyes del Google Sheets
 const SHEET_NETFLIX = "netflix";
