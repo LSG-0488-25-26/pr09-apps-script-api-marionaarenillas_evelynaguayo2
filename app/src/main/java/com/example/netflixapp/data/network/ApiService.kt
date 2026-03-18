@@ -30,27 +30,27 @@ data class InsertResponse(
 
 interface ApiService {
 
-    @GET(".")
+    @GET("macros/s/AKfycbxZ-CN8CrodYQF5ndTonzuWgwo82Z7dValc4riq84VdC-KA86rJKJCROMdYum1tqqI_dQ/exec")
     suspend fun getAllTitles(
         @Query("action") action: String = "getAll",
         @Query("api_key") apiKey: String
     ): List<NetflixTitle>
 
-    @GET(".")
+    @GET("macros/s/AKfycbxZ-CN8CrodYQF5ndTonzuWgwo82Z7dValc4riq84VdC-KA86rJKJCROMdYum1tqqI_dQ/exec")
     suspend fun getTitlesByType(
         @Query("action") action: String = "getByType",
         @Query("type") type: String,
         @Query("api_key") apiKey: String
     ): List<NetflixTitle>
 
-    @GET(".")
+    @GET("macros/s/AKfycbxZ-CN8CrodYQF5ndTonzuWgwo82Z7dValc4riq84VdC-KA86rJKJCROMdYum1tqqI_dQ/exec")
     suspend fun getTitleById(
         @Query("action") action: String = "getById",
         @Query("id") id: String,
         @Query("api_key") apiKey: String
     ): NetflixTitle
 
-    @POST(".")
+    @POST("macros/s/AKfycbxZ-CN8CrodYQF5ndTonzuWgwo82Z7dValc4riq84VdC-KA86rJKJCROMdYum1tqqI_dQ/exec")
     suspend fun insertTitle(
         @Body request: InsertRequest
     ): Response<InsertResponse>

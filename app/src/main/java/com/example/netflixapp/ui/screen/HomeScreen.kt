@@ -11,6 +11,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -24,6 +25,10 @@ fun HomeScreen(
 ) {
     val titles by viewModel.titles.observeAsState(emptyList())
     val message by viewModel.message.observeAsState("")
+
+    LaunchedEffect(Unit) {
+        viewModel.loadAllTitles()
+    }
 
     Column(
         modifier = Modifier
