@@ -14,6 +14,7 @@ import com.example.netflixapp.ui.theme.NetflixAppTheme
 import com.example.netflixapp.ui.viewmodel.AuthViewModel
 import com.example.netflixapp.ui.viewmodel.NetflixViewModel
 import com.example.netflixapp.ui.screen.AddTitleScreen
+import com.example.netflixapp.ui.screen.DetailScreen
 
 class MainActivity : ComponentActivity() {
 
@@ -74,6 +75,9 @@ class MainActivity : ComponentActivity() {
                     composable("home") {
                         HomeScreen(
                             viewModel = netflixViewModel,
+                            onItemClick = { showId ->
+                                navController.navigate("detail/$showId")
+                            },
                             onGoToAddTitle = {
                                 navController.navigate("add_title")
                             }
@@ -84,6 +88,19 @@ class MainActivity : ComponentActivity() {
                     composable("add_title") {
                         AddTitleScreen(
                             viewModel = netflixViewModel,
+                            onBack = {
+                                navController.popBackStack()
+                            }
+                        )
+                    }
+
+                    // Pantalla de detalls de la peli
+                    composable("detail/{showId}") { backStackEntry ->
+                        val showId = backStackEntry.arguments?.getString("showId") ?: ""
+
+                        DetailScreen(
+                            viewModel = netflixViewModel,
+                            showId = showId,
                             onBack = {
                                 navController.popBackStack()
                             }
