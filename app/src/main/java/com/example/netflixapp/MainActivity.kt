@@ -13,6 +13,7 @@ import com.example.netflixapp.ui.screen.RegisterScreen
 import com.example.netflixapp.ui.theme.NetflixAppTheme
 import com.example.netflixapp.ui.viewmodel.AuthViewModel
 import com.example.netflixapp.ui.viewmodel.NetflixViewModel
+import com.example.netflixapp.ui.screen.AddTitleScreen
 
 class MainActivity : ComponentActivity() {
 
@@ -72,7 +73,20 @@ class MainActivity : ComponentActivity() {
                     // Pantalla principal amb la llista
                     composable("home") {
                         HomeScreen(
-                            viewModel = netflixViewModel
+                            viewModel = netflixViewModel,
+                            onGoToAddTitle = {
+                                navController.navigate("add_title")
+                            }
+                        )
+                    }
+
+                    // Pantalla per afegir nova peli
+                    composable("add_title") {
+                        AddTitleScreen(
+                            viewModel = netflixViewModel,
+                            onBack = {
+                                navController.popBackStack()
+                            }
                         )
                     }
                 }
