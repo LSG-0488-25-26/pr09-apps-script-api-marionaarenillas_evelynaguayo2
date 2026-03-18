@@ -16,12 +16,14 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.material3.Button
 import com.example.netflixapp.ui.viewmodel.NetflixViewModel
 
 @Composable
 fun HomeScreen(
     viewModel: NetflixViewModel,
-    onItemClick: (String) -> Unit = {}
+    onItemClick: (String) -> Unit = {},
+    onGoToAddTitle: () -> Unit = {}
 ) {
     val titles by viewModel.titles.observeAsState(emptyList())
     val message by viewModel.message.observeAsState("")
@@ -39,6 +41,15 @@ fun HomeScreen(
             text = "Catàleg Netflix",
             style = MaterialTheme.typography.headlineMedium
         )
+
+        Button(
+            onClick = onGoToAddTitle,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 12.dp)
+        ) {
+            Text("Afegir nou títol")
+        }
 
         if (message.isNotEmpty()) {
             Text(
