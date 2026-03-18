@@ -78,6 +78,7 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.compose.runtime.livedata)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
