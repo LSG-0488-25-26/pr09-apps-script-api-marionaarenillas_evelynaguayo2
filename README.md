@@ -24,7 +24,7 @@ https://docs.google.com/spreadsheets/d/101FtRCdNexW_fpLUMuRzqf1_KEo5-CMgQcCk3hjm
 S'ha desenvolupat una API amb Google Apps Script que treballa sobre el Google Sheets.
 
 ### 🔐 Autenticació
-La API requereix una API KEY per validar les peticions: `API_KEY=netflix123`.
+La API requereix una API KEY per validar les peticions.
 La clau es guarda com a variable d'entorn a Apps Script.
 
 ---
@@ -89,7 +89,7 @@ A totes les peticions s'envia el paràmetre: `API_KEY`
 
 Fitxer `secrets.properties`:
 BASE_URL=https://script.google.com/
-API_KEY=netflix123
+API_KEY
 
 
 ---
